@@ -8,9 +8,8 @@ class Navbar extends Component {
                 <nav className='z-depth-0'>
                         <div className='nav-wrapper white'>
                         <Link to='/' style={{ fontFamily: 'monospace' }}
-                        className='col s5 brand-logo center black-text'>
-                        <i className='materials-icons'>code</i>
-                        MERN
+                            className='col s5 brand-logo center black-text'>
+                            welcome
                         </Link>
                     </div>
                 </nav>
