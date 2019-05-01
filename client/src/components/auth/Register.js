@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { registerUser } from '../../actions/authActions'
+import classnames from 'classnames'
 
 class Register extends Component {
     constructor() {
@@ -10,6 +14,14 @@ class Register extends Component {
             password: '',
             passwordConfirm: '',
             errors: {}
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            })
         }
     }
 
@@ -25,6 +37,7 @@ class Register extends Component {
             password: this.state.password,
             passwordConfirm: this.state.passwordConfirm
         }
+        this.props.registerUser(newUser, this.props.history)
     }
     render() {
         const { errors } = this.state
@@ -51,8 +64,12 @@ class Register extends Component {
                                     error={errors.name}
                                     id='name'
                                     type='text'
+                                    className={ classnames('', {
+                                        invalid: errors.name
+                                    })}
                                 />
                                 <label htmlFor='name'>Name</label>
+                                <span className='red-text'>{ errors.name }</span>
                             </div>
                             <div className='input-field col s12'>
                                 <input
@@ -60,9 +77,13 @@ class Register extends Component {
                                     value={this.state.email}
                                     error={errors.email}
                                     id='email'
-                                    type='text'
+                                    type='email'
+                                    className={ classnames('', {
+                                        invalid: errors.email
+                                    })}
                                 />
                                 <label htmlFor='name'>Email</label>
+                                <span className='red-text'>{ errors.email }</span>
                             </div>
                             <div className='input-field col s12'>
                                 <input
@@ -71,8 +92,12 @@ class Register extends Component {
                                     error={errors.password}
                                     id='password'
                                     type='password'
+                                    className= { classnames('', {
+                                        invalid: errors.password
+                                    })}
                                 />
                                 <label htmlFor='name'>Password</label>
+                                <span className='red-text'>{ errors.password }</span>
                             </div>
                             <div className='input-field col s12'>
                                 <input
@@ -81,8 +106,12 @@ class Register extends Component {
                                     error={errors.passwordConfirm}
                                     id='passwordConfirm'
                                     type='password'
+                                    className= { classnames('', {
+                                        invalid: errors.passwordConfirm
+                                    })}
                                 />
                                 <label htmlFor='name'>Confirm Password</label>
+                                <span className='red-text'>{ errors.passwordConfirm }</span>
                             </div>
                             <div className='col s12' style={{ paddingLeft: '11.250px ' }}>
                                 <button
@@ -105,4 +134,18 @@ class Register extends Component {
     }
 }
 
-export default Register
+Register.PropTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export default connect(
+    mapStateToProps,
+    { registerUser }
+)(withRouter(Register))
