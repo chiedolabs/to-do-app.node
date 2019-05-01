@@ -16,7 +16,8 @@ class Login extends Component {
     }
     onSubmit = e => {
         e.preventDefault()
-        const newUser = {
+        // eslint-disable-next-line
+        const userData = {
             email: this.state.email,
             password: this.state.password,
         }

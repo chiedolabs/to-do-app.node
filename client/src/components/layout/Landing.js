@@ -7,14 +7,26 @@ class Landing extends Component {
                 <div className='row'>
                     <div className='col s12 center-align'>
                         <h4>
-                            <b>Build</b> a login/auth app with the{' '}
-                            <span style={{ fontFamily: 'monospace' }}>MERN</span>
-                            stack from sratch
+                            Fullstack{' '}<b>ToDo</b> list app{' '}
+                            
                         </h4>
                         <p className='flow-text grey-text text-darken-1'>
-                        Fullstack app with user auth via passport and JWTs
+                            {' '}using{' '}
+                            <span style={{ fontFamily: 'monospace' }}>passport</span>
+                            {' '}and{' '}
+                            <span style={{ fontFamily: 'monospace' }}>JWTs</span>
+                            {' '}for user auth{' '}
                         </p>
                         <br />
+
+                        <a style={{
+                            width: '150px',
+                            borderRadius: '3px',
+                            letterSpacing: '1.5px'
+                        }}
+                        className='btn btn-large waves-effect waves-light hoverable blue accent-3'
+                        >Register</a>
+
                         <a style={{
                             marginLeft: '2rem',
                             width: '150px',
@@ -22,8 +34,7 @@ class Landing extends Component {
                             letterSpacing: '1.5px'
                         }}
                         className='btn btn-large waves-effect white hoverable black-text'
-                        >Log In
-                        </a>
+                        >Log In</a>
                     </div>
                 </div>
             </div>

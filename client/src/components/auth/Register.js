@@ -18,6 +18,7 @@ class Register extends Component {
     }
     onSubmit = e => {
         e.preventDefault()
+        // eslint-disable-next-line
         const newUser = {
             name: this.state.name,
             email: this.state.email,
