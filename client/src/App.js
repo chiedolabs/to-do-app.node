@@ -13,7 +13,11 @@ import Landing from './components/layout/Landing'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import PrivateRoute from './components/private-route/PrivateRoute'
+// delete dashboard at the end
 import Dashboard from './components/dashboard/Dashboard';
+// use todo list app with redux
+import AppFront from './components/AppFront'
+
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -40,13 +44,13 @@ class App extends Component {
     return (
       <Provider store={ store }>
         <Router>
-          <div className='App'>
+          <div className='AppFront'>
             <Navbar />
             <Route exact path='/' component={ Landing }/>
             <Route exact path='/register' component={ Register }/>
             <Route exact path='/login' component={ Login }/>
             <Switch>
-              <PrivateRoute exact path='/dashboard' component={ Dashboard }/>
+              <PrivateRoute exact path='/AppFront' component={ AppFront }/>
             </Switch>
           </div>
         </Router>

@@ -17,13 +17,13 @@ class Register extends Component {
         }
     }
 
-    componentDidMount() {
-        // if logged in user wants to go to register
-        // page, it will redirect them  to dashboard
-        if (this.props.auth.isAuthenticated) {
-            this.props.history.push('/dashboard')
-        }
-    }
+    // componentDidMount() {
+    //     // if logged in user wants to go to register
+    //     // page, it will redirect them  to dashboard
+    //     if (this.props.auth.isAuthenticated) {
+    //         this.props.history.push('/AppFront')
+    //     }
+    // }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
