@@ -5,7 +5,7 @@ import { addTodo } from '../actions'
 const AddTodo = ({ dispatch }) => {
     let input
     return (
-        <div>
+        <div className='col s12 center-align'>
             <form onSubmit={e => {
                 e.preventDefault()
                 if (!input.value.trim()) {
@@ -23,7 +23,7 @@ const AddTodo = ({ dispatch }) => {
                 }}
                 type='submit'
                 className='btn btn-medium waves-effect waves-light hoverable green accent-3'
-                >Add something</button>
+                >Add</button>
             </form>
         </div>
     )
