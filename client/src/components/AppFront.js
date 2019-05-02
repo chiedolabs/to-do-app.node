@@ -24,7 +24,7 @@ class AppFront extends Component {
         
         const { user } = this.props.auth
         return (
-            <div>
+            <React.Fragment>
                 <AddTodo />
                 <VisibleTodoList />
                 <Footer />
@@ -50,7 +50,7 @@ class AppFront extends Component {
                     </div>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
         )
     }
 }

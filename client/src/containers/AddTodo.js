@@ -15,7 +15,15 @@ const AddTodo = ({ dispatch }) => {
                 input.value = ''
             }}>
                 <input ref={node => (input = node)} />
-                <button type='submit'>Add something</button>
+                <button style={{
+                    width: '100px',
+                    borderRadius: '3px',
+                    letterSpacing: '1.5px',
+                    marginTop: '1rem'
+                }}
+                type='submit'
+                className='btn btn-medium waves-effect waves-light hoverable green accent-3'
+                >Add something</button>
             </form>
         </div>
     )
